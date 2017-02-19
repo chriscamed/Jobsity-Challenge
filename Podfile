@@ -7,6 +7,7 @@ target 'Jobsity Challenge' do
 
   # Pods for Jobsity Challenge
   pod 'Alamofire', '~> 4.3'
+  pod 'AlamofireImage', '~> 3.1'
 
   target 'Jobsity ChallengeTests' do
     inherit! :search_paths

@@ -11,14 +11,12 @@ import Alamofire
 
 class Connection {
     
-    func fetchData(fromURL url: String, completion: @escaping (_ data: [[String:NSObject]]?) -> ()) {
+    func fetchData(fromURL url: String, completion: @escaping (_ data: Any?) -> ()) {
         Alamofire.request(url).responseJSON { response in
-            print(response.request)
+            print(response.request ?? "")
             print(response.result)
             
-            if let JSON = response.result.value as? [[String:NSObject]] {
-                completion(JSON)
-            }
+            completion(response.result.value)
         }
     }
 }

@@ -12,6 +12,8 @@ class SeriesListTableViewCell: UITableViewCell {
     
     @IBOutlet weak var serieName: UILabel!
     @IBOutlet weak var serieCoverImage: UIImageView!
+    @IBOutlet weak var serieLanguage: UILabel!
+    @IBOutlet weak var serieGenres: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()

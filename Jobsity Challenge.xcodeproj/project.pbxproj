@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A34712C1E5A405C00D3BE1D /* placeholder_img.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9A34712B1E5A405C00D3BE1D /* placeholder_img.jpg */; };
 		9A8FFA501E58E89D007008DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8FFA4F1E58E89D007008DB /* AppDelegate.swift */; };
 		9A8FFA551E58E89D007008DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A8FFA531E58E89D007008DB /* Main.storyboard */; };
 		9A8FFA581E58E89D007008DB /* Jobsity_Challenge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9A8FFA561E58E89D007008DB /* Jobsity_Challenge.xcdatamodeld */; };
@@ -39,6 +40,7 @@
 		2D857F1D3DDABEB121A9B523 /* Pods-Jobsity Challenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jobsity Challenge.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Jobsity Challenge/Pods-Jobsity Challenge.debug.xcconfig"; sourceTree = "<group>"; };
 		33ED2BA0BA24CA0732EB726A /* Pods_Jobsity_Challenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Jobsity_Challenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F132435029024AB6F484AF5 /* Pods_Jobsity_ChallengeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Jobsity_ChallengeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A34712B1E5A405C00D3BE1D /* placeholder_img.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = placeholder_img.jpg; sourceTree = "<group>"; };
 		9A8FFA4C1E58E89D007008DB /* Jobsity Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Jobsity Challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A8FFA4F1E58E89D007008DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A8FFA541E58E89D007008DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -114,7 +116,6 @@
 			children = (
 				9AE4D0351E58EEF60048C079 /* model */,
 				9AE4D0361E58EEF60048C079 /* controllers */,
-				9AE4D0381E58EEF60048C079 /* views */,
 				9AE4D0341E58EED00048C079 /* Supporting files */,
 			);
 			path = "Jobsity Challenge";
@@ -133,6 +134,8 @@
 			isa = PBXGroup;
 			children = (
 				9AE4D03C1E58F3BE0048C079 /* images */,
+				9A8FFA531E58E89D007008DB /* Main.storyboard */,
+				9A8FFA5B1E58E89D007008DB /* LaunchScreen.storyboard */,
 				9A8FFA4F1E58E89D007008DB /* AppDelegate.swift */,
 				9A8FFA591E58E89D007008DB /* Assets.xcassets */,
 				9A8FFA5E1E58E89D007008DB /* Info.plist */,
@@ -160,18 +163,10 @@
 			path = controllers;
 			sourceTree = "<group>";
 		};
-		9AE4D0381E58EEF60048C079 /* views */ = {
-			isa = PBXGroup;
-			children = (
-				9A8FFA531E58E89D007008DB /* Main.storyboard */,
-				9A8FFA5B1E58E89D007008DB /* LaunchScreen.storyboard */,
-			);
-			path = views;
-			sourceTree = "<group>";
-		};
 		9AE4D03C1E58F3BE0048C079 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				9A34712B1E5A405C00D3BE1D /* placeholder_img.jpg */,
 				9AE4D03D1E58F3CC0048C079 /* 4600.jpg */,
 			);
 			path = images;
@@ -307,6 +302,7 @@
 				9AE4D03E1E58F3CC0048C079 /* 4600.jpg in Resources */,
 				9A8FFA5A1E58E89D007008DB /* Assets.xcassets in Resources */,
 				9A8FFA551E58E89D007008DB /* Main.storyboard in Resources */,
+				9A34712C1E5A405C00D3BE1D /* placeholder_img.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,7 +449,6 @@
 				9A8FFA541E58E89D007008DB /* Base */,
 			);
 			name = Main.storyboard;
-			path = ..;
 			sourceTree = "<group>";
 		};
 		9A8FFA5B1E58E89D007008DB /* LaunchScreen.storyboard */ = {
@@ -462,7 +457,6 @@
 				9A8FFA5C1E58E89D007008DB /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
