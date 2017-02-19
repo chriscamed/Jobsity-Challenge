@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Dxf-PH-47a">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--¡Amazing Challenge!-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="SeriesListViewController" customModule="Jobsity_Challenge" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="184" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ud3-0D-ONV">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" id="94U-Z6-Tiv">
+                                    <rect key="frame" x="0.0" y="64" width="375" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="BYZ-38-t0r" id="Zac-ZV-ONm"/>
+                                    </connections>
+                                </searchBar>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="seriesListingCell" rowHeight="185" id="ojx-A5-dhp" customClass="SeriesListTableViewCell" customModule="Jobsity_Challenge" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="136" width="375" height="185"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ojx-A5-dhp" id="4ec-jS-qhn">
+                                            <frame key="frameInset" width="375" height="185"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="4600.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Na9-Fl-vOw">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="120" id="Cm0-Qu-B7Q"/>
+                                                        <constraint firstAttribute="height" constant="169" id="l2G-BS-ZVP"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LabelLabelLabelLabelLabelLabelLabel" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ftr-na-8xA">
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Ftr-na-8xA" firstAttribute="top" secondItem="4ec-jS-qhn" secondAttribute="topMargin" id="72e-zD-AKq"/>
+                                                <constraint firstItem="Na9-Fl-vOw" firstAttribute="leading" secondItem="4ec-jS-qhn" secondAttribute="leading" constant="8" id="Onk-Bp-qV1"/>
+                                                <constraint firstItem="Ftr-na-8xA" firstAttribute="leading" secondItem="Na9-Fl-vOw" secondAttribute="trailing" constant="8" id="R3t-1o-6wH"/>
+                                                <constraint firstItem="Ftr-na-8xA" firstAttribute="trailing" secondItem="4ec-jS-qhn" secondAttribute="trailingMargin" id="cvn-cc-ZqU"/>
+                                                <constraint firstItem="Na9-Fl-vOw" firstAttribute="centerY" secondItem="4ec-jS-qhn" secondAttribute="centerY" id="oHa-k6-92V"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="serieCoverImage" destination="Na9-Fl-vOw" id="OmZ-oU-W0T"/>
+                                            <outlet property="serieName" destination="Ftr-na-8xA" id="t0a-mu-ngm"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="nsb-fS-D5S"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Gat-jT-eZs"/>
+                                </connections>
+                            </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="GFv-gZ-B8P"/>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Ud3-0D-ONV" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="880-Dp-LvH"/>
+                            <constraint firstItem="Ud3-0D-ONV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="C2a-I7-Ofx"/>
+                            <constraint firstAttribute="trailing" secondItem="Ud3-0D-ONV" secondAttribute="trailing" id="Ieb-Cg-5Mc"/>
+                            <constraint firstItem="GFv-gZ-B8P" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Lef-2D-vIq"/>
+                            <constraint firstItem="GFv-gZ-B8P" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NLU-h0-WU1"/>
+                            <constraint firstItem="Ud3-0D-ONV" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="WTK-Ye-eQo"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="¡Amazing Challenge!" id="GYd-IR-aps"/>
+                    <connections>
+                        <outlet property="progress" destination="GFv-gZ-B8P" id="xYG-6w-nUS"/>
+                        <outlet property="searchDisplayController" destination="hn7-he-LLu" id="eGf-mV-ffi"/>
+                        <outlet property="tableView" destination="Ud3-0D-ONV" id="Bwe-sp-IuP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="ajZ-5C-AeR">
+                    <connections>
+                        <outlet property="delegate" destination="BYZ-38-t0r" id="uZc-Mw-bpq"/>
+                        <outlet property="searchContentsController" destination="BYZ-38-t0r" id="yNd-K4-CIn"/>
+                        <outlet property="searchResultsDataSource" destination="BYZ-38-t0r" id="9QF-YB-rJK"/>
+                        <outlet property="searchResultsDelegate" destination="BYZ-38-t0r" id="j1q-6z-8DZ"/>
+                    </connections>
+                </searchDisplayController>
+                <searchDisplayController id="hn7-he-LLu">
+                    <connections>
+                        <outlet property="delegate" destination="BYZ-38-t0r" id="1NN-75-Y8r"/>
+                        <outlet property="searchBar" destination="94U-Z6-Tiv" id="vun-RP-fbg"/>
+                        <outlet property="searchContentsController" destination="BYZ-38-t0r" id="yWc-XJ-9wg"/>
+                        <outlet property="searchResultsDataSource" destination="BYZ-38-t0r" id="w2Q-c1-2ms"/>
+                        <outlet property="searchResultsDelegate" destination="BYZ-38-t0r" id="voN-Wa-l78"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="1088.8" y="37.331334332833585"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="tbi-sc-lzK">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Dxf-PH-47a" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oDS-ET-Tle">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="f9R-Su-bBb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Jg-1s-2yR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="324" y="38"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="4600.jpg" width="210" height="295"/>
+    </resources>
+</document>
