@@ -34,7 +34,10 @@ class SeriesConnection: Connection {
                 let name = serie["name"] as! String
                 let language = serie["language"] as! String
                 let genres = serie["genres"] as! [String]
-                let coverImgURL = (serie["image"] as! [String:String])["medium"]!
+                var coverImgURL: String?
+                if let imgURL = serie["image"] as? [String:String] {
+                    coverImgURL = imgURL["medium"]!
+                }
                                 
                 series.append(Serie(id: id, name: name, language: language, genres: genres, coverImgURL: coverImgURL))
             }

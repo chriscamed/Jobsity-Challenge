@@ -14,9 +14,9 @@ class Serie {
     var name = ""
     var language = ""
     var genres: [String] = []
-    var coverImgURL = ""
+    var coverImgURL: String?
     
-    init(id: String, name: String, language: String, genres: [String], coverImgURL: String) {
+    init(id: String, name: String, language: String, genres: [String], coverImgURL: String?) {
         self.id = id
         self.name = name
         self.language = language

@@ -13,16 +13,17 @@ class SeriesListViewController: UIViewController {
     
     @IBOutlet weak var progress: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
-    private lazy var serieList: [Serie] = []
-    private let nextPageThresholdInRows = 50
-    private var currentPage = 1
+    lazy var serieList: [Serie] = []
+    let nextPageThresholdInRows: CGFloat = 50.0
+    var currentPage = 1
+    var isLoading = false
+    var isEndOfPages = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
         progress.startAnimating()
         progress.hidesWhenStopped = true
-        
-        
+        loadSeries(atPage: currentPage)
     }
     
     func showAlertView(withMessage message: String, andTitle error: String) {
@@ -32,6 +33,7 @@ class SeriesListViewController: UIViewController {
     }
     
     func loadSeries(atPage page: Int) {
+        isLoading = true
         SeriesConnection().listSeries(fromServiceURL: Constants.LIST_SHOWS_BY_PAGE + "\(page)") { [unowned self] data in
             self.progress.stopAnimating()
             self.tableView.isHidden = false
@@ -41,9 +43,16 @@ class SeriesListViewController: UIViewController {
             } else if (data is Error) {
                 self.showAlertView(withMessage: "Error: \n\(data as! Error)", andTitle: "Error")
             } else if data is [Serie] {
-                self.serieList = data as! [Serie]
-                self.tableView.reloadData()
+                let listOfSeries = data as! [Serie]
+                if listOfSeries.count == 0 {
+                    self.isEndOfPages = true
+                } else {
+                    self.serieList += listOfSeries
+                    self.tableView.reloadData()
+                }
             }
+            
+            self.isLoading = false
         }
     }
 }
@@ -58,13 +67,16 @@ extension SeriesListViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "seriesListingCell", for: indexPath) as! SeriesListTableViewCell
         cell.serieName.text = serieList[indexPath.item].name
         cell.serieCoverImage.image = placeholderImg
-        cell.serieCoverImage.af_setImage(withURL: URL(string: serieList[indexPath.row].coverImgURL)!, placeholderImage: placeholderImg)
         cell.serieLanguage.text = "Language: \(serieList[indexPath.row].language)"
         let genres = serieList[indexPath.row].genres
+        
         if genres.count > 0 {
             cell.serieGenres.text = "Genres: \(genres.joined(separator: "\n"))"
         }
         
+        if let imgURL = serieList[indexPath.row].coverImgURL {
+            cell.serieCoverImage.af_setImage(withURL: URL(string: imgURL)!, placeholderImage: placeholderImg)
+        }
         
         return cell
     }
@@ -78,7 +90,14 @@ extension SeriesListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        print(scrollView.contentSize.height)
+        if !isLoading && !isEndOfPages {
+            let threshold = tableView.contentSize.height - (tableView.rowHeight * self.nextPageThresholdInRows)
+            if scrollView.contentOffset.y >= threshold {                
+                currentPage += 1
+                loadSeries(atPage: currentPage)
+            }
+        }
+        
     }
     
 }
