@@ -16,12 +16,31 @@ class Serie {
     var genres: [String] = []
     var coverImgURL: String?
     
-    init(id: String, name: String, language: String, genres: [String], coverImgURL: String?) {
+    var posterImgURL: String?
+    var time = ""
+    var days: [String] = []
+    var summary = ""
+    
+    
+    init(id: String,
+         name: String,
+         language: String,
+         genres: [String],
+         coverImgURL: String?,
+         posterImgURL: String?,
+         time: String,
+         days: [String],
+         summary: String) {
+        
         self.id = id
         self.name = name
         self.language = language
         self.genres = genres
-        self.coverImgURL = coverImgURL        
+        self.coverImgURL = coverImgURL
+        self.posterImgURL = posterImgURL
+        self.time = time
+        self.days = days
+        self.summary = summary
     }
     
 }

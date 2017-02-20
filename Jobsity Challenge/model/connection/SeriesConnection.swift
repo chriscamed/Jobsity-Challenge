@@ -30,16 +30,32 @@ class SeriesConnection: Connection {
         
         if let seriesArray = data as? [[String:NSObject]] {
             for serie in seriesArray {
-                let id = String(describing: serie["id"])
+                let id = String(describing: serie["id"]!)
                 let name = serie["name"] as! String
                 let language = serie["language"] as! String
                 let genres = serie["genres"] as! [String]
+                let time = (serie["schedule"] as! [String:NSObject])["time"]! as! String
+                let days = (serie["schedule"] as! [String:NSObject])["days"]! as! [String]
+                let summary = serie["summary"] as! String
                 var coverImgURL: String?
+                var posterImgURL: String?
                 if let imgURL = serie["image"] as? [String:String] {
                     coverImgURL = imgURL["medium"]!
                 }
+                if let imgURL = serie["image"] as? [String:String] {
+                    posterImgURL = imgURL["original"]!
+                }
+                
                                 
-                series.append(Serie(id: id, name: name, language: language, genres: genres, coverImgURL: coverImgURL))
+                series.append(Serie(id: id,
+                                    name: name,
+                                    language: language,
+                                    genres: genres,
+                                    coverImgURL: coverImgURL,
+                                    posterImgURL: posterImgURL,
+                                    time: time,
+                                    days: days,
+                                    summary: summary))
             }
         }
         

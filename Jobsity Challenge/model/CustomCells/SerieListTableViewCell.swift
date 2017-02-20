@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SeriesListTableViewCell: UITableViewCell {
+class SerieListTableViewCell: UITableViewCell {
     
     @IBOutlet weak var serieName: UILabel!
     @IBOutlet weak var serieCoverImage: UIImageView!

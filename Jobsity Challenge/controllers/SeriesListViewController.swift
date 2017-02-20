@@ -13,11 +13,15 @@ class SeriesListViewController: UIViewController {
     
     @IBOutlet weak var progress: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
-    lazy var serieList: [Serie] = []
-    let nextPageThresholdInRows: CGFloat = 50.0
-    var currentPage = 1
-    var isLoading = false
-    var isEndOfPages = false
+    fileprivate lazy var serieList: [Serie] = []
+    fileprivate let nextPageThresholdInRows: CGFloat = 50.0
+    fileprivate var currentPage = 1
+    fileprivate var isLoading = false
+    fileprivate var isEndOfPages = false
+    fileprivate var selectedRow = 0
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +59,12 @@ class SeriesListViewController: UIViewController {
             self.isLoading = false
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? SerieDetailViewController {
+            vc.serie = serieList[selectedRow]
+        }
+    }
 }
 
 
@@ -64,7 +74,7 @@ extension SeriesListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let placeholderImg = UIImage(named: "placeholder_img.jpg")
-        let cell = tableView.dequeueReusableCell(withIdentifier: "seriesListingCell", for: indexPath) as! SeriesListTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "seriesListingCell", for: indexPath) as! SerieListTableViewCell
         cell.serieName.text = serieList[indexPath.item].name
         cell.serieCoverImage.image = placeholderImg
         cell.serieLanguage.text = "Language: \(serieList[indexPath.row].language)"
@@ -79,6 +89,11 @@ extension SeriesListViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedRow = indexPath.row
+        performSegue(withIdentifier: "showSerieDetail", sender: nil)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
