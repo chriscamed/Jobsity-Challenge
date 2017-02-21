@@ -10,8 +10,6 @@ import Foundation
 
 class EpisodesConnection: Connection {
     
-    private var currentSeason = "1"
-    
     func listEpisodes(fromServiceURL url: String, completion: @escaping (Any?) -> ()) {
         super.fetchData(fromURL: url) { data in
             completion(self.bindData(data))
@@ -32,27 +30,37 @@ class EpisodesConnection: Connection {
         }
         
         if let episodesArray = data as? [[String:NSObject]] {
+            var index = 0
+            var currentSeason = ""
+            var isFirstEpisode = true
             for episode in episodesArray {
                 let id = String(describing: episode["id"]!)
                 let name = episode["name"] as! String
                 let number = episode["number"] as! Int
                 let season = String(describing: episode["season"]!)
-                let summary = episode["summary"] as! String
+                let summary = episode["summary"] as? String
                 var imageURL: String?
                 if let imgURL = episode["image"] as? [String:String] {
                     imageURL = imgURL["original"]!
                 }
                 
+                if isFirstEpisode {
+                    currentSeason = season
+                    isFirstEpisode = false
+                }
+                
                 if season != currentSeason {
-                    episodesBySeason["\(currentSeason)"] = episodes
+                    episodesBySeason["\(index)"] = episodes
                     episodes = []
                     currentSeason = season
+                    index += 1
                 }
+                                
                 
                 episodes.append(Episode(id: id, name: name, number: number, season: season, summary: summary, imageURL: imageURL))
             }
             
-            episodesBySeason["\(currentSeason)"] = episodes
+            episodesBySeason["\(index)"] = episodes
             
         }
         

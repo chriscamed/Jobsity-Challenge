@@ -157,10 +157,10 @@
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="episodesListingCell" id="Oi5-RC-g6Y" customClass="EpisodeListTableViewCell" customModule="Jobsity_Challenge" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="56" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Oi5-RC-g6Y" id="etQ-gn-tSo">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c9F-IH-09t">
@@ -208,6 +208,127 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I5D-cT-OU1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1824.8" y="-635.53223388305855"/>
+        </scene>
+        <!--¡Amazing Challenge!-->
+        <scene sceneID="q0z-bp-Nq5">
+            <objects>
+                <viewController storyboardIdentifier="episodeDetailViewController" id="F6d-LV-UJR" customClass="EpisodeDetailViewController" customModule="Jobsity_Challenge" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="if9-MB-LIS"/>
+                        <viewControllerLayoutGuide type="bottom" id="8Ih-WG-nOn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PSJ-TZ-jnd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ilo-34-1O0">
+                                <rect key="frame" x="0.0" y="64" width="375" height="265"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="265" id="gRs-px-KfB"/>
+                                </constraints>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Brs-wg-3Qc">
+                                <rect key="frame" x="0.0" y="370" width="375" height="297"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no"/>
+                            </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shadow.png" translatesAutoresizingMaskIntoConstraints="NO" id="1fi-sn-E4V">
+                                <rect key="frame" x="0.0" y="236" width="375" height="74"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="74" id="QpW-0I-1d4"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Episode name" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HyQ-fI-XWT">
+                                <rect key="frame" x="16" y="236" width="343" height="66"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="66" id="DDA-OD-Z8d"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qfu-a0-3aG">
+                                <rect key="frame" x="0.0" y="310" width="375" height="60"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Episode number:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nB3-HA-gfs">
+                                        <rect key="frame" x="16" y="8" width="125" height="18"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="125" id="ayX-3H-YUj"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Season:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KgY-SQ-BiR">
+                                        <rect key="frame" x="16" y="34" width="59" height="18"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z8x-9j-mPR">
+                                        <rect key="frame" x="146" y="8" width="221" height="18"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gps-jn-c6T">
+                                        <rect key="frame" x="80" y="34" width="287" height="18"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.87843137250000003" green="0.87843137250000003" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="5f3-xD-Kfv"/>
+                                    <constraint firstItem="KgY-SQ-BiR" firstAttribute="leading" secondItem="qfu-a0-3aG" secondAttribute="leading" constant="16" id="Chv-Rf-5jL"/>
+                                    <constraint firstItem="z8x-9j-mPR" firstAttribute="leading" secondItem="nB3-HA-gfs" secondAttribute="trailing" constant="5" id="G6t-5L-yaz"/>
+                                    <constraint firstItem="KgY-SQ-BiR" firstAttribute="top" secondItem="z8x-9j-mPR" secondAttribute="bottom" constant="8" id="Gbm-Pp-vsV"/>
+                                    <constraint firstItem="gps-jn-c6T" firstAttribute="top" secondItem="KgY-SQ-BiR" secondAttribute="top" id="SKE-ix-yCV"/>
+                                    <constraint firstItem="gps-jn-c6T" firstAttribute="leading" secondItem="KgY-SQ-BiR" secondAttribute="trailing" constant="5" id="WL9-lU-4jb"/>
+                                    <constraint firstItem="nB3-HA-gfs" firstAttribute="leading" secondItem="qfu-a0-3aG" secondAttribute="leading" constant="16" id="Ybj-HW-HdF"/>
+                                    <constraint firstAttribute="trailing" secondItem="z8x-9j-mPR" secondAttribute="trailing" constant="8" id="apU-gp-ggg"/>
+                                    <constraint firstAttribute="trailing" secondItem="gps-jn-c6T" secondAttribute="trailing" constant="8" id="f2i-Qu-a7b"/>
+                                    <constraint firstItem="nB3-HA-gfs" firstAttribute="top" secondItem="qfu-a0-3aG" secondAttribute="top" constant="8" id="lRF-6D-jNT"/>
+                                    <constraint firstItem="z8x-9j-mPR" firstAttribute="top" secondItem="nB3-HA-gfs" secondAttribute="top" id="mh4-6S-ZIE"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="HyQ-fI-XWT" firstAttribute="leading" secondItem="PSJ-TZ-jnd" secondAttribute="leadingMargin" id="3Qg-6e-aCO"/>
+                            <constraint firstItem="HyQ-fI-XWT" firstAttribute="trailing" secondItem="PSJ-TZ-jnd" secondAttribute="trailingMargin" id="4fk-al-Htr"/>
+                            <constraint firstItem="8Ih-WG-nOn" firstAttribute="top" secondItem="Brs-wg-3Qc" secondAttribute="bottom" id="C2h-PB-CQm"/>
+                            <constraint firstItem="1fi-sn-E4V" firstAttribute="leading" secondItem="PSJ-TZ-jnd" secondAttribute="leading" id="DDt-1e-wGt"/>
+                            <constraint firstAttribute="trailing" secondItem="1fi-sn-E4V" secondAttribute="trailing" id="EJN-8d-NdT"/>
+                            <constraint firstAttribute="trailing" secondItem="Brs-wg-3Qc" secondAttribute="trailing" id="KBW-5f-iuy"/>
+                            <constraint firstItem="qfu-a0-3aG" firstAttribute="top" secondItem="HyQ-fI-XWT" secondAttribute="bottom" constant="8" id="ULG-2O-8zc"/>
+                            <constraint firstItem="qfu-a0-3aG" firstAttribute="top" secondItem="1fi-sn-E4V" secondAttribute="bottom" id="aWP-bS-Nfc"/>
+                            <constraint firstItem="Brs-wg-3Qc" firstAttribute="leading" secondItem="PSJ-TZ-jnd" secondAttribute="leading" id="bK3-hp-sOK"/>
+                            <constraint firstItem="Ilo-34-1O0" firstAttribute="leading" secondItem="PSJ-TZ-jnd" secondAttribute="leading" id="e80-M0-KeP"/>
+                            <constraint firstItem="Ilo-34-1O0" firstAttribute="top" secondItem="if9-MB-LIS" secondAttribute="bottom" id="eem-bP-TBo"/>
+                            <constraint firstItem="qfu-a0-3aG" firstAttribute="leading" secondItem="PSJ-TZ-jnd" secondAttribute="leading" id="ka5-qL-PWT"/>
+                            <constraint firstAttribute="trailing" secondItem="qfu-a0-3aG" secondAttribute="trailing" id="nn4-2C-4fN"/>
+                            <constraint firstAttribute="trailing" secondItem="Ilo-34-1O0" secondAttribute="trailing" id="oaP-4t-jr1"/>
+                            <constraint firstItem="Brs-wg-3Qc" firstAttribute="top" secondItem="qfu-a0-3aG" secondAttribute="bottom" id="qNT-KG-AOs"/>
+                            <constraint firstItem="HyQ-fI-XWT" firstAttribute="top" secondItem="Ilo-34-1O0" secondAttribute="bottom" constant="-93" id="yYQ-bT-wNN"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="¡Amazing Challenge!" id="pMg-4S-ql6"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="episodeCoverImageView" destination="Ilo-34-1O0" id="9D5-4F-1qA"/>
+                        <outlet property="episodeNameLabel" destination="HyQ-fI-XWT" id="jgS-LF-gEy"/>
+                        <outlet property="episodeNumberLabel" destination="z8x-9j-mPR" id="0l5-ea-KHs"/>
+                        <outlet property="seasonNumberLabel" destination="gps-jn-c6T" id="vzg-3c-2kP"/>
+                        <outlet property="summaryTextView" destination="Brs-wg-3Qc" id="20Y-5G-qJo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kwk-Hg-46S" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2576.8000000000002" y="-636.4317841079461"/>
         </scene>
         <!--¡Amazing Challenge!-->
         <scene sceneID="HkW-i7-LXe">
@@ -375,6 +496,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="placeholder.png" width="1280" height="960"/>
         <image name="shadow.png" width="120" height="120"/>
     </resources>
 </document>

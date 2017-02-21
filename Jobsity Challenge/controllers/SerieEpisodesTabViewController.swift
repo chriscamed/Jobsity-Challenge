@@ -46,17 +46,6 @@ class SerieEpisodesTabViewController: UIViewController {
         alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alertController, animated: true, completion: nil)
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
@@ -64,19 +53,25 @@ extension SerieEpisodesTabViewController: UITableViewDelegate, UITableViewDataSo
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "episodesListingCell", for: indexPath) as! EpisodeListTableViewCell
-        cell.episodeNameLabel.text = episodeList["\(indexPath.section+1)"]![indexPath.row].name
+        cell.episodeNameLabel.text = episodeList["\(indexPath.section)"]![indexPath.row].name
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return episodeList["\(section+1)"]!.count
+        return episodeList["\(section)"]!.count
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Season \(section+1)"
+        return "Season \(episodeList["\(section)"]![0].season)"
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return episodeList.count
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "episodeDetailViewController") as! EpisodeDetailViewController
+        vc.episode = episodeList["\(indexPath.section)"]![indexPath.row]
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

@@ -14,14 +14,14 @@ class Episode {
     var name = ""
     var number = 0
     var season = ""
-    var summary = ""
+    var summary: String?
     var imageURL: String?
     
     init(id: String,
          name: String,
          number: Int,
          season: String,
-         summary: String,
+         summary: String?,
          imageURL: String?) {
         self.id = id
         self.name = name

@@ -124,14 +124,15 @@ class SerieDetailViewController: UIViewController {
             attrString.addAttributes([NSFontAttributeName : UIFont.systemFont(ofSize: 17)], range: fullRange)
             detailTab.summaryTextView.attributedText = attrString
             detailTab.summaryTextView.contentOffset = CGPoint.zero
-            let placeholderImg = UIImage(named: "placeholder_img.jpg")
-            if let imgURL = serie!.posterImgURL {
-                seriePosterImageView.af_setImage(withURL: URL(string: imgURL)!, placeholderImage: placeholderImg)
-            }
+            
         } catch {
             print(error)
         }
         
+        let placeholderImg = UIImage(named: "placeholder.png")
+        if let imgURL = serie!.posterImgURL {
+            seriePosterImageView.af_setImage(withURL: URL(string: imgURL)!, placeholderImage: placeholderImg)
+        }
         
         let episodesTab = pagingMenuController.pagingViewController?.controllers[1] as! SerieEpisodesTabViewController
         episodesTab.serie = serie
