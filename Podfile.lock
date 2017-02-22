@@ -3,17 +3,20 @@ PODS:
   - AlamofireImage (3.2.0):
     - Alamofire (~> 4.1)
   - PagingMenuController (2.2.0)
+  - SmileLock (2.0.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.3)
   - AlamofireImage (~> 3.1)
   - PagingMenuController
+  - SmileLock
 
 SPEC CHECKSUMS:
   Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
   AlamofireImage: 157ed682cc81d3b9db4fb90c1f12180ac552d93b
   PagingMenuController: 6176618987bb170096664f2da097313e45ed9c31
+  SmileLock: ee34bf37e824c8afc71217fccc2b2bee5510db64
 
-PODFILE CHECKSUM: 809b08adb8441b0837c28eb4567a286e710c4065
+PODFILE CHECKSUM: 8391821225e4919288e423fe653a52c10741ef11
 
 COCOAPODS: 1.2.0

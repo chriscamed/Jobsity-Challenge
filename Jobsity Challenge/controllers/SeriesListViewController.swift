@@ -8,6 +8,7 @@
 
 import UIKit
 import AlamofireImage
+import SmileLock
 
 class SeriesListViewController: UIViewController {
     
@@ -25,6 +26,9 @@ class SeriesListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let authenticationVC = storyboard?.instantiateViewController(withIdentifier: "authenticationViewController") as! AuthenticationViewController
+        authenticationVC.modalPresentationStyle = .overCurrentContext
+        present(authenticationVC, animated: true, completion: nil)
         progress.startAnimating()
         progress.hidesWhenStopped = true
         loadSeries(atPage: currentPage)
@@ -70,7 +74,9 @@ class SeriesListViewController: UIViewController {
 
 // MARK: SeriesListViewController delegates
 
-extension SeriesListViewController: UITableViewDelegate, UITableViewDataSource {
+extension SeriesListViewController: UITableViewDelegate, UITableViewDataSource, PasswordInputCompleteProtocol {
+    
+    // MARK: - Table View delegate and datasource methods
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let placeholderImg = UIImage(named: "placeholder_img.jpg")
@@ -113,6 +119,17 @@ extension SeriesListViewController: UITableViewDelegate, UITableViewDataSource {
             }
         }
         
+    }
+    
+    // MARK: - SmileLock methods
+    
+    func touchAuthenticationComplete(_ passwordContainerView: PasswordContainerView, success: Bool, error: NSError?) {
+        
+    }
+    
+    func passwordInputComplete(_ passwordContainerView: PasswordContainerView, input: String) {
+        print("input completed -> \(input)")
+        //handle validation wrong || success
     }
     
 }

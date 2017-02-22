@@ -13,10 +13,18 @@ class SerieDetailTabViewController: UIViewController {
     @IBOutlet weak var serieNameLabel: UILabel!
     @IBOutlet weak var scheduleLabel: UILabel!
     @IBOutlet weak var genresLabel: UILabel!
-    @IBOutlet weak var summaryTextView: UITextView!
+    @IBOutlet weak var summaryTextView: UITextView!    
+    @IBOutlet weak var serieDetailHeightConstraint: NSLayoutConstraint!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let screenHeight = UIScreen.main.bounds.height
+        print(screenHeight)
+        
+        if screenHeight <= 568.0 {
+            serieDetailHeightConstraint.constant = 100
+        }
+        
         summaryTextView.textContainerInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
     }
     

@@ -73,9 +73,20 @@ class SerieDetailViewController: UIViewController {
     
     var serie: Serie?    
     @IBOutlet weak var seriePosterImageView: UIImageView!
+    @IBOutlet weak var posterImageHeightConstraint: NSLayoutConstraint!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let screenHeight = UIScreen.main.bounds.height
+        print(screenHeight)
+        
+        var heightDifference: CGFloat = 0
+        if screenHeight <= 568.0 {
+            posterImageHeightConstraint.constant = 170
+            heightDifference = 35
+        }
         
         view.backgroundColor = UIColor.clear
         
@@ -83,8 +94,8 @@ class SerieDetailViewController: UIViewController {
         
         let pagingMenuController = PagingMenuController(options: options)
         
-        pagingMenuController.view.frame.origin.y += 250
-        pagingMenuController.view.frame.size.height -= 250
+        pagingMenuController.view.frame.origin.y += (220 - heightDifference)
+        pagingMenuController.view.frame.size.height -= (220 - heightDifference)
         pagingMenuController.onMove = { state in
             switch state {
             case let .willMoveController(menuController, previousMenuController):

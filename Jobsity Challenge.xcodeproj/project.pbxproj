@@ -26,6 +26,8 @@
 		9ABC071E1E5CAF06000CE3C1 /* EpisodeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABC071D1E5CAF06000CE3C1 /* EpisodeDetailViewController.swift */; };
 		9ABC07201E5CB002000CE3C1 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 9ABC071F1E5CB002000CE3C1 /* placeholder.png */; };
 		9ABC07221E5CB008000CE3C1 /* cover_reference.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9ABC07211E5CB008000CE3C1 /* cover_reference.jpg */; };
+		9ACD32501E5D3DA6001E552F /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACD324F1E5D3DA6001E552F /* AuthenticationViewController.swift */; };
+		9ACD32531E5D48AB001E552F /* AuthenticationUIValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACD32521E5D48AB001E552F /* AuthenticationUIValidation.swift */; };
 		9AE4D0391E58EEF60048C079 /* SeriesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE4D0371E58EEF60048C079 /* SeriesListViewController.swift */; };
 		9AE4D03E1E58F3CC0048C079 /* thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9AE4D03D1E58F3CC0048C079 /* thumb.jpg */; };
 		9AE4D0401E58F7C90048C079 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE4D03F1E58F7C90048C079 /* Constants.swift */; };
@@ -75,6 +77,8 @@
 		9ABC071D1E5CAF06000CE3C1 /* EpisodeDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpisodeDetailViewController.swift; sourceTree = "<group>"; };
 		9ABC071F1E5CB002000CE3C1 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 		9ABC07211E5CB008000CE3C1 /* cover_reference.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cover_reference.jpg; sourceTree = "<group>"; };
+		9ACD324F1E5D3DA6001E552F /* AuthenticationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
+		9ACD32521E5D48AB001E552F /* AuthenticationUIValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationUIValidation.swift; sourceTree = "<group>"; };
 		9AE4D0371E58EEF60048C079 /* SeriesListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeriesListViewController.swift; sourceTree = "<group>"; };
 		9AE4D03D1E58F3CC0048C079 /* thumb.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = thumb.jpg; sourceTree = "<group>"; };
 		9AE4D03F1E58F7C90048C079 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -162,6 +166,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		9ACD32511E5D489C001E552F /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				9ACD32521E5D48AB001E552F /* AuthenticationUIValidation.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
 		9AE4D0341E58EED00048C079 /* Supporting files */ = {
 			isa = PBXGroup;
 			children = (
@@ -180,6 +192,7 @@
 		9AE4D0351E58EEF60048C079 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				9ACD32511E5D489C001E552F /* Authentication */,
 				9AE4D0451E58FF800048C079 /* CustomCells */,
 				9AE4D0441E58FADD0048C079 /* DataBindObjects */,
 				9AE4D0411E58F8760048C079 /* Connection */,
@@ -191,6 +204,7 @@
 		9AE4D0361E58EEF60048C079 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				9ACD324F1E5D3DA6001E552F /* AuthenticationViewController.swift */,
 				9AE4D0371E58EEF60048C079 /* SeriesListViewController.swift */,
 				9AB370941E5B35C6009B9E84 /* SerieDetailViewController.swift */,
 				9AB370981E5B4C32009B9E84 /* SerieDetailTabViewController.swift */,
@@ -471,12 +485,14 @@
 				9A8FFA581E58E89D007008DB /* Jobsity_Challenge.xcdatamodeld in Sources */,
 				9AB370951E5B35C6009B9E84 /* SerieDetailViewController.swift in Sources */,
 				9AE4D04B1E59059A0048C079 /* SeriesConnection.swift in Sources */,
+				9ACD32531E5D48AB001E552F /* AuthenticationUIValidation.swift in Sources */,
 				9AB370A21E5B855C009B9E84 /* Episode.swift in Sources */,
 				9AE4D0491E5900A80048C079 /* Serie.swift in Sources */,
 				9AE4D0391E58EEF60048C079 /* SeriesListViewController.swift in Sources */,
 				9AB370A61E5B917F009B9E84 /* EpisodeListTableViewCell.swift in Sources */,
 				9A8FFA501E58E89D007008DB /* AppDelegate.swift in Sources */,
 				9AB3709B1E5B4C64009B9E84 /* SerieEpisodesTabViewController.swift in Sources */,
+				9ACD32501E5D3DA6001E552F /* AuthenticationViewController.swift in Sources */,
 				9AB3709E1E5B77DB009B9E84 /* UIColorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
