@@ -309,6 +309,7 @@
 				TargetAttributes = {
 					9A8FFA4B1E58E89D007008DB = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 383M5WJD2Z;
 						ProvisioningStyle = Automatic;
 					};
 					9A8FFA621E58E89D007008DB = {
@@ -616,7 +617,9 @@
 			baseConfigurationReference = 2D857F1D3DDABEB121A9B523 /* Pods-Jobsity Challenge.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 383M5WJD2Z;
 				INFOPLIST_FILE = "Jobsity Challenge/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jobsity.Jobsity-Challenge";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -629,7 +632,9 @@
 			baseConfigurationReference = C029541FDE501FEA075B090E /* Pods-Jobsity Challenge.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 383M5WJD2Z;
 				INFOPLIST_FILE = "Jobsity Challenge/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jobsity.Jobsity-Challenge";
 				PRODUCT_NAME = "$(TARGET_NAME)";

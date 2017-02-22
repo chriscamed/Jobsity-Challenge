@@ -8,8 +8,7 @@ target 'Jobsity Challenge' do
   # Pods for Jobsity Challenge
   pod 'Alamofire', '~> 4.3'
   pod 'AlamofireImage', '~> 3.1'
-
-  pod "PagingMenuController"
+  pod 'PagingMenuController'
 
   post_install do |installer|
    installer.pods_project.targets.each do |target|
