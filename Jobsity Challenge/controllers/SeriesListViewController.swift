@@ -26,6 +26,7 @@ class SeriesListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+		tableView.register(UINib.init(nibName: "SeriesTableCell", bundle: Bundle.main), forCellReuseIdentifier: "seriesListingCell")
         let authenticationVC = storyboard?.instantiateViewController(withIdentifier: "authenticationViewController") as! AuthenticationViewController
         authenticationVC.modalPresentationStyle = .overCurrentContext
         present(authenticationVC, animated: true, completion: nil)
@@ -81,6 +82,8 @@ extension SeriesListViewController: UITableViewDelegate, UITableViewDataSource, 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let placeholderImg = UIImage(named: "placeholder_img.jpg")
         let cell = tableView.dequeueReusableCell(withIdentifier: "seriesListingCell", for: indexPath) as! SerieListTableViewCell
+		let serieId = serieList[indexPath.item].id
+		cell.serie = serieList[indexPath.item]
         cell.serieName.text = serieList[indexPath.item].name
         cell.serieCoverImage.image = placeholderImg
         cell.serieLanguage.text = "Language: \(serieList[indexPath.row].language)"
@@ -93,6 +96,12 @@ extension SeriesListViewController: UITableViewDelegate, UITableViewDataSource, 
         if let imgURL = serieList[indexPath.row].coverImgURL {
             cell.serieCoverImage.af_setImage(withURL: URL(string: imgURL)!, placeholderImage: placeholderImg)
         }
+		
+		if let _ = JCSerieMO.findSerieInDatabase(withId: serieId) {
+			let fullStar = UIImage(named: "full_star.png")
+			cell.favoriteButton.setImage(fullStar, for: .normal)
+			cell.isFavorite = true
+		}
         
         return cell
     }

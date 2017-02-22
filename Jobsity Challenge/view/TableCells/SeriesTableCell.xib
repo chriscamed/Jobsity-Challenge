@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="seriesListingCell" rowHeight="185" id="Myu-CR-U7I" customClass="SerieListTableViewCell" customModule="Jobsity_Challenge" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="185"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Myu-CR-U7I" id="kOW-Gd-tpw">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="184"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NCF-EJ-grX">
+                        <rect key="frame" x="8" y="8" width="120" height="169"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="169" id="dV7-ea-iTk"/>
+                            <constraint firstAttribute="width" constant="120" id="uyg-rc-XeN"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Serie name" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ryi-5H-Mae">
+                        <rect key="frame" x="136" y="8" width="231" height="21"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Language:" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="leq-cj-3G7">
+                        <rect key="frame" x="136" y="37" width="231" height="21"/>
+                        <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lch-eP-lcm">
+                        <rect key="frame" x="136" y="66" width="231" height="0.0"/>
+                        <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ebH-W4-Vhu">
+                        <rect key="frame" x="327" y="136" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="dJC-Fm-6hR"/>
+                            <constraint firstAttribute="height" constant="40" id="g8t-UE-9nB"/>
+                        </constraints>
+                        <state key="normal" image="empty_star.png"/>
+                        <connections>
+                            <action selector="addFavorite:" destination="Myu-CR-U7I" eventType="touchUpInside" id="EwZ-Fs-8Ev"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="leq-cj-3G7" firstAttribute="top" secondItem="ryi-5H-Mae" secondAttribute="bottom" constant="8" id="0E4-JQ-g2v"/>
+                    <constraint firstItem="Lch-eP-lcm" firstAttribute="trailing" secondItem="kOW-Gd-tpw" secondAttribute="trailingMargin" id="107-Cy-Qln"/>
+                    <constraint firstItem="ebH-W4-Vhu" firstAttribute="trailing" secondItem="kOW-Gd-tpw" secondAttribute="trailingMargin" id="5DW-zD-deS"/>
+                    <constraint firstItem="NCF-EJ-grX" firstAttribute="centerY" secondItem="kOW-Gd-tpw" secondAttribute="centerY" id="Fp0-4P-X1y"/>
+                    <constraint firstItem="leq-cj-3G7" firstAttribute="trailing" secondItem="kOW-Gd-tpw" secondAttribute="trailingMargin" id="Gt1-OP-4zi"/>
+                    <constraint firstItem="NCF-EJ-grX" firstAttribute="leading" secondItem="kOW-Gd-tpw" secondAttribute="leading" constant="8" id="Gzb-cF-SIb"/>
+                    <constraint firstItem="Lch-eP-lcm" firstAttribute="top" secondItem="leq-cj-3G7" secondAttribute="bottom" constant="8" id="WU7-Zu-ejB"/>
+                    <constraint firstItem="leq-cj-3G7" firstAttribute="leading" secondItem="NCF-EJ-grX" secondAttribute="trailing" constant="8" id="gD3-uU-g7l"/>
+                    <constraint firstItem="ryi-5H-Mae" firstAttribute="top" secondItem="kOW-Gd-tpw" secondAttribute="topMargin" id="iuk-14-fwr"/>
+                    <constraint firstItem="Lch-eP-lcm" firstAttribute="leading" secondItem="NCF-EJ-grX" secondAttribute="trailing" constant="8" id="lNG-jP-QXn"/>
+                    <constraint firstItem="ryi-5H-Mae" firstAttribute="leading" secondItem="NCF-EJ-grX" secondAttribute="trailing" constant="8" id="qkP-RK-CzP"/>
+                    <constraint firstItem="ebH-W4-Vhu" firstAttribute="bottom" secondItem="kOW-Gd-tpw" secondAttribute="bottomMargin" id="tpX-ih-zjJ"/>
+                    <constraint firstItem="ryi-5H-Mae" firstAttribute="trailing" secondItem="kOW-Gd-tpw" secondAttribute="trailingMargin" id="x07-fu-nGl"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="favoriteButton" destination="ebH-W4-Vhu" id="GEM-4j-nxC"/>
+                <outlet property="serieCoverImage" destination="NCF-EJ-grX" id="Il5-bX-tTB"/>
+                <outlet property="serieGenres" destination="Lch-eP-lcm" id="dzO-JZ-G4I"/>
+                <outlet property="serieLanguage" destination="leq-cj-3G7" id="PV8-pH-I5z"/>
+                <outlet property="serieName" destination="ryi-5H-Mae" id="0Cs-8i-b1y"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="empty_star.png" width="64" height="64"/>
+    </resources>
+</document>

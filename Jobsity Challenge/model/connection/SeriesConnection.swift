@@ -16,7 +16,7 @@ class SeriesConnection: Connection {
         }
     }
     
-    private func bindData(_ data: Any?) -> Any? {
+    fileprivate func bindData(_ data: Any?) -> Any? {
         
         var series: [Serie] = []
         

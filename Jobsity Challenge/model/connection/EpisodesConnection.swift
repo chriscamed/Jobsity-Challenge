@@ -16,7 +16,7 @@ class EpisodesConnection: Connection {
         }
     }
     
-    private func bindData(_ data: Any?) -> Any? {
+    fileprivate func bindData(_ data: Any?) -> Any? {
         
         var episodesBySeason: [String:[Episode]] = [:]
         var episodes: [Episode] = []

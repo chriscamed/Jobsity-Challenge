@@ -124,22 +124,25 @@ class SerieDetailViewController: UIViewController {
         detailTab.serieNameLabel.text = serie!.name
         detailTab.scheduleLabel.text = "\(serie!.time) - \(serie!.days.joined(separator: ", "))"
         detailTab.genresLabel.text = "\(serie!.genres.joined(separator: ", "))"
-        var attrString = NSMutableAttributedString()
-        do {
-            attrString = try NSMutableAttributedString(data: serie!.summary.data(using: String.Encoding.unicode, allowLossyConversion: true)!,
-                                                       options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType,
-                                                                 NSForegroundColorAttributeName: UIColor.black],
-                                                       documentAttributes: nil)
-            
-            let fullRange : NSRange = NSMakeRange(0, attrString.length)
-            attrString.addAttributes([NSFontAttributeName : UIFont.systemFont(ofSize: 17)], range: fullRange)
-            detailTab.summaryTextView.attributedText = attrString
-            detailTab.summaryTextView.contentOffset = CGPoint.zero
-            
-        } catch {
-            print(error)
-        }
-        
+		
+		DispatchQueue.global(qos: .background).async {
+			var attrString = NSMutableAttributedString()
+			do {
+				attrString = try NSMutableAttributedString(data: self.serie!.summary.data(using: String.Encoding.unicode, allowLossyConversion: true)!,
+				                                           options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType,
+				                                                     NSForegroundColorAttributeName: UIColor.black],
+				                                           documentAttributes: nil)
+				
+				let fullRange : NSRange = NSMakeRange(0, attrString.length)
+				attrString.addAttributes([NSFontAttributeName : UIFont.systemFont(ofSize: 17)], range: fullRange)
+				detailTab.summaryTextView.attributedText = attrString
+				detailTab.summaryTextView.contentOffset = CGPoint.zero
+				
+			} catch {
+				print(error)
+			}
+		}
+		
         let placeholderImg = UIImage(named: "placeholder.png")
         if let imgURL = serie!.posterImgURL {
             seriePosterImageView.af_setImage(withURL: URL(string: imgURL)!, placeholderImage: placeholderImg)
