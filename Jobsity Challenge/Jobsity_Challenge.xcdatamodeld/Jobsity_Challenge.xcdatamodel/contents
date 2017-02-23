@@ -12,6 +12,6 @@
         <attribute name="time" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="SerieEntity" positionX="-4545" positionY="-738" width="128" height="178"/>
+        <element name="SerieEntity" positionX="-4545" positionY="-738" width="128" height="180"/>
     </elements>
 </model>

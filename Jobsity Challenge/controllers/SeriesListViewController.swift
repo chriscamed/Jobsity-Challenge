@@ -35,12 +35,6 @@ class SeriesListViewController: UIViewController {
         loadSeries(atPage: currentPage)
     }
     
-    func showAlertView(withMessage message: String, andTitle error: String) {
-        let alertController = UIAlertController(title: error, message: message, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        present(alertController, animated: true, completion: nil)
-    }
-    
     func loadSeries(atPage page: Int) {
         isLoading = true
         SeriesConnection().listSeries(fromServiceURL: Constants.LIST_SHOWS_BY_PAGE + "\(page)") { [unowned self] data in
@@ -65,9 +59,19 @@ class SeriesListViewController: UIViewController {
         }
     }
     
+    func showAlertView(withMessage message: String, andTitle error: String) {
+        let alertController = UIAlertController(title: error, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alertController, animated: true, completion: nil)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? SerieDetailViewController {
             vc.serie = serieList[selectedRow]
+        }
+        
+        if let vc = segue.destination as? FavoriteSeriesListViewController {
+            vc.delegate = self
         }
     }
 }
@@ -75,7 +79,7 @@ class SeriesListViewController: UIViewController {
 
 // MARK: SeriesListViewController delegates
 
-extension SeriesListViewController: UITableViewDelegate, UITableViewDataSource, PasswordInputCompleteProtocol {
+extension SeriesListViewController: UITableViewDelegate, UITableViewDataSource, FavoriteSeriesDelegate {
     
     // MARK: - Table View delegate and datasource methods
     
@@ -101,7 +105,11 @@ extension SeriesListViewController: UITableViewDelegate, UITableViewDataSource, 
 			let fullStar = UIImage(named: "full_star.png")
 			cell.favoriteButton.setImage(fullStar, for: .normal)
 			cell.isFavorite = true
-		}
+        } else {
+            let emptyStar = UIImage(named: "empty_star.png")
+            cell.favoriteButton.setImage(emptyStar, for: .normal)
+            cell.isFavorite = false
+        }
         
         return cell
     }
@@ -130,15 +138,10 @@ extension SeriesListViewController: UITableViewDelegate, UITableViewDataSource, 
         
     }
     
-    // MARK: - SmileLock methods
+    // MARK: - Favorite Series View Controller Delegate
     
-    func touchAuthenticationComplete(_ passwordContainerView: PasswordContainerView, success: Bool, error: NSError?) {
-        
-    }
-    
-    func passwordInputComplete(_ passwordContainerView: PasswordContainerView, input: String) {
-        print("input completed -> \(input)")
-        //handle validation wrong || success
+    func favoriteSeriesViewControllerDisapeared(_ viewController: FavoriteSeriesListViewController) {
+        tableView.reloadData()
     }
     
 }

@@ -3,6 +3,14 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "static JCSerieMO.loadSeriesFromLocalDatabase() -&gt; [Serie]?:JCSerieMO.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "moc.fetch(seriesFetch)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "SerieEpisodesTabViewController.(loadData() -&gt; ()).(closure #1):SerieEpisodesTabViewController.swift">
       </ContextState>
       <ContextState

@@ -23,9 +23,9 @@ class JCSerieMO: NSManagedObject {
 	
 	
 	static func saveSerieToLocalDatabase(_ serie: Serie) -> Bool {
-		let dataController = CoreDataController()
+		let moc = CoreDataController.sharedInstance.managedObjectContext
 	
-		let serieEntity = NSEntityDescription.insertNewObject(forEntityName: "SerieEntity", into: dataController.managedObjectContext) as! JCSerieMO
+		let serieEntity = NSEntityDescription.insertNewObject(forEntityName: "SerieEntity", into: moc) as! JCSerieMO
 		serieEntity.setValue(serie.id, forKey: "id")
 		serieEntity.setValue(serie.name, forKey: "name")
 		serieEntity.setValue(serie.language, forKey: "language")
@@ -37,7 +37,7 @@ class JCSerieMO: NSManagedObject {
 		serieEntity.setValue(serie.summary, forKey: "summary")
 		
 		do {
-			try dataController.managedObjectContext.save()
+			try moc.save()
 			print("Data saved successfully!")
 		} catch let error as NSError  {
 			print("Could not save \(error), \(error.userInfo)")
@@ -48,19 +48,18 @@ class JCSerieMO: NSManagedObject {
 	}
 	
 	static func loadSeriesFromLocalDatabase() -> [Serie]? {
-		let moc = CoreDataController().managedObjectContext
-		let seriesFetch: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "SerieEntity")
+		let moc = CoreDataController.sharedInstance.managedObjectContext
+        let seriesFetch = NSFetchRequest<NSManagedObject>(entityName: "SerieEntity")
 		let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
 		let sortDescriptors = [sortDescriptor]
 		seriesFetch.sortDescriptors = sortDescriptors
 		seriesFetch.returnsObjectsAsFaults = false
-		seriesFetch.entity = NSEntityDescription.entity(forEntityName: "SerieEntity", in: moc)
 		
 		do {
-			let data = try moc.fetch(seriesFetch) as? [JCSerieMO]
+			let data = try moc.fetch(seriesFetch) as! [JCSerieMO]
 			var seriesList: [Serie] = []
 			
-			for serieMO in data! {
+			for serieMO in data {
 				let id = serieMO.id!
 				let name = serieMO.name!
 				let language = serieMO.language!
@@ -93,24 +92,24 @@ class JCSerieMO: NSManagedObject {
 	
 	static func findSerieInDatabase(withId id: String) -> Serie? {
 		
-		let managedObjects = getManagedObjects(withId: id)
-		guard let serieMO = managedObjects else {
+		let managedObject = getManagedObject(withId: id)
+		guard let serieMO = managedObject else {
 			return nil
 		}
 		
-		guard serieMO.count > 0 else {
+		/*guard serieMO.count > 0 else {
 			return nil
-		}
+		}*/
 		
-		let id = serieMO.first!.id!
-		let name = serieMO.first!.name!
-		let language = serieMO.first!.language!
-		let genres = serieMO.first!.genres!.components(separatedBy: ",")
-		let coverImgURL = serieMO.first!.coverImgURL
-		let posterImgURL = serieMO.first!.posterImgURL
-		let time = serieMO.first!.time!
-		let days = serieMO.first!.days!.components(separatedBy: ",")
-		let summary = serieMO.first!.summary!
+		let id = serieMO.id!
+		let name = serieMO.name!
+		let language = serieMO.language!
+		let genres = serieMO.genres!.components(separatedBy: ",")
+		let coverImgURL = serieMO.coverImgURL
+		let posterImgURL = serieMO.posterImgURL
+		let time = serieMO.time!
+		let days = serieMO.days!.components(separatedBy: ",")
+		let summary = serieMO.summary!
 		
 		print("Data loaded successfully!")
 		
@@ -126,16 +125,15 @@ class JCSerieMO: NSManagedObject {
 		
 	}
 	
-	static  func getManagedObjects(withId id: String) -> [JCSerieMO]? {
-		let moc = CoreDataController().managedObjectContext
-		let seriesFetch: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "SerieEntity")
+	static  func getManagedObject(withId id: String) -> JCSerieMO? {
+		let moc = CoreDataController.sharedInstance.managedObjectContext
+		let seriesFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "SerieEntity")
 		let idPredicate = NSPredicate(format: "id = %@", id)
 		seriesFetch.predicate = idPredicate
 		seriesFetch.returnsObjectsAsFaults = false
-		seriesFetch.entity = NSEntityDescription.entity(forEntityName: "SerieEntity", in: moc)
 		
 		do {
-			return try moc.fetch(seriesFetch) as? [JCSerieMO]
+			return try (moc.fetch(seriesFetch) as? [JCSerieMO])?.first
 		} catch {
 			print(error)
 			return nil
@@ -143,16 +141,16 @@ class JCSerieMO: NSManagedObject {
 	}
 	
 	static func removeSerieFromDatabase(withId id: String) {
-		let moc = CoreDataController().managedObjectContext
-		guard let seriesMO = getManagedObjects(withId: id) else {
+		let moc = CoreDataController.sharedInstance.managedObjectContext
+		guard let serieMO = getManagedObject(withId: id) else {
 			return
 		}
 		
-		guard seriesMO.count > 0 else {
+		/*guard seriesMO.count > 0 else {
 			return
-		}
+		}*/
 		
-		moc.delete(seriesMO.first!)
+		moc.delete(serieMO)
 		
 		do {
 			try moc.save()

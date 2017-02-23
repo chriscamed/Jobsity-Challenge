@@ -44,3 +44,31 @@ class Serie {
     }
     
 }
+
+extension Serie: Equatable {
+    static func == (lhs: Serie, rhs: Serie) -> Bool {
+        return
+            lhs.id == rhs.id &&
+            lhs.name == rhs.name &&
+            lhs.language == rhs.language &&
+            lhs.genres == rhs.genres &&
+            lhs.coverImgURL == rhs.coverImgURL &&
+            lhs.posterImgURL == rhs.posterImgURL &&
+            lhs.time == rhs.time &&
+            lhs.days == rhs.days &&
+            lhs.summary == rhs.summary
+    }
+    
+    static func != (lhs: Serie, rhs: Serie) -> Bool {
+        return
+            lhs.id != rhs.id &&
+            lhs.name != rhs.name &&
+            lhs.language != rhs.language &&
+            lhs.genres != rhs.genres &&
+            lhs.coverImgURL != rhs.coverImgURL &&
+            lhs.posterImgURL != rhs.posterImgURL &&
+            lhs.time != rhs.time &&
+            lhs.days != rhs.days &&
+            lhs.summary != rhs.summary
+    }
+}

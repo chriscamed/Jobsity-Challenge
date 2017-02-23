@@ -180,19 +180,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NKr-AA-Mpn">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NKr-AA-Mpn">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <outlet property="dataSource" destination="I06-3F-KfE" id="cib-GD-R9X"/>
-                                    <outlet property="delegate" destination="I06-3F-KfE" id="W0J-bF-ul5"/>
+                                    <outlet property="dataSource" destination="I06-3F-KfE" id="MvN-kk-adi"/>
+                                    <outlet property="delegate" destination="I06-3F-KfE" id="0wW-Td-kR3"/>
                                 </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="tableView" destination="NKr-AA-Mpn" id="WVP-us-c0D"/>
                         <segue destination="4NI-3a-Swc" kind="show" identifier="showSerieDetail" id="WTM-8d-kxc"/>
                     </connections>
                 </viewController>

@@ -125,23 +125,21 @@ class SerieDetailViewController: UIViewController {
         detailTab.scheduleLabel.text = "\(serie!.time) - \(serie!.days.joined(separator: ", "))"
         detailTab.genresLabel.text = "\(serie!.genres.joined(separator: ", "))"
 		
-		DispatchQueue.global(qos: .background).async {
-			var attrString = NSMutableAttributedString()
-			do {
-				attrString = try NSMutableAttributedString(data: self.serie!.summary.data(using: String.Encoding.unicode, allowLossyConversion: true)!,
-				                                           options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType,
-				                                                     NSForegroundColorAttributeName: UIColor.black],
-				                                           documentAttributes: nil)
-				
-				let fullRange : NSRange = NSMakeRange(0, attrString.length)
-				attrString.addAttributes([NSFontAttributeName : UIFont.systemFont(ofSize: 17)], range: fullRange)
-				detailTab.summaryTextView.attributedText = attrString
-				detailTab.summaryTextView.contentOffset = CGPoint.zero
-				
-			} catch {
-				print(error)
-			}
-		}
+        var attrString = NSMutableAttributedString()
+        do {
+            attrString = try NSMutableAttributedString(data: self.serie!.summary.data(using: String.Encoding.unicode, allowLossyConversion: true)!,
+                                                       options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType,
+                                                                 NSForegroundColorAttributeName: UIColor.black],
+                                                       documentAttributes: nil)
+            
+            let fullRange : NSRange = NSMakeRange(0, attrString.length)
+            attrString.addAttributes([NSFontAttributeName : UIFont.systemFont(ofSize: 17)], range: fullRange)
+            detailTab.summaryTextView.attributedText = attrString
+            detailTab.summaryTextView.contentOffset = CGPoint.zero
+            
+        } catch {
+            print(error)
+        }
 		
         let placeholderImg = UIImage(named: "placeholder.png")
         if let imgURL = serie!.posterImgURL {

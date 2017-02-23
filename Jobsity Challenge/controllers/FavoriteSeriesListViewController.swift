@@ -8,14 +8,20 @@
 
 import UIKit
 
+protocol FavoriteSeriesDelegate: class {
+    func favoriteSeriesViewControllerDisapeared(_ viewController: FavoriteSeriesListViewController)
+}
+
 class FavoriteSeriesListViewController: UIViewController {
 	
 	@IBOutlet weak var tableView: UITableView!
 	fileprivate var seriesList: [Serie] = []
 	fileprivate var selectedRow = 0
+    weak var delegate: FavoriteSeriesDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.register(UINib.init(nibName: "SeriesTableCell", bundle: Bundle.main), forCellReuseIdentifier: "seriesListingCell")
 		loadDataFromDatabase()
     }
 	
@@ -25,7 +31,6 @@ class FavoriteSeriesListViewController: UIViewController {
 		}
 		
 		seriesList = series
-		tableView.reloadData()
 	}
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -33,6 +38,10 @@ class FavoriteSeriesListViewController: UIViewController {
 			vc.serie = seriesList[selectedRow]
 		}
 	}
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        delegate?.favoriteSeriesViewControllerDisapeared(self)
+    }
 
 }
 
@@ -74,5 +83,26 @@ extension FavoriteSeriesListViewController: UITableViewDelegate, UITableViewData
 	func numberOfSections(in tableView: UITableView) -> Int {
 		return 1
 	}
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            tableView.beginUpdates()
+            
+            let serie = seriesList[indexPath.row]
+            JCSerieMO.removeSerieFromDatabase(withId: serie.id)
+            seriesList.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            
+            tableView.endUpdates()
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 185
+    }
 	
 }

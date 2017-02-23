@@ -29,7 +29,10 @@ class SerieListTableViewCell: UITableViewCell {
 	
 	@IBAction func addFavorite(_ button: UIButton) {
 		if isFavorite {
-			print("Already added as favorite")
+			print("Removed from favorites")
+            JCSerieMO.removeSerieFromDatabase(withId: serie.id)
+            favoriteButton.setImage(UIImage(named: "empty_star.png"), for: .normal)
+            isFavorite = false
 		} else {
 			if JCSerieMO.saveSerieToLocalDatabase(serie) {
 				print("Added to favorites")
