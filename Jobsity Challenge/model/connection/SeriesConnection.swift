@@ -28,28 +28,27 @@ class SeriesConnection: Connection {
             return data as! Error
         }
         
-        if let seriesArray = data as? [[String:NSObject]] {
+        if let seriesArray = data as? [[String: NSObject]] {
             for serieItem in seriesArray {
 				var serie = serieItem
 				if isPersonSeries {
-					serie = (serieItem["_embedded"] as! [String:NSObject])["show"] as! [String:NSObject]
+					serie = (serieItem["_embedded"] as! [String: NSObject])["show"] as! [String: NSObject]
 				}
                 let id = String(describing: serie["id"]!)
                 let name = serie["name"] as! String
                 let language = serie["language"] as! String
                 let genres = serie["genres"] as! [String]
-                let time = (serie["schedule"] as! [String:NSObject])["time"]! as! String
-                let days = (serie["schedule"] as! [String:NSObject])["days"]! as! [String]
+                let time = (serie["schedule"] as! [String: NSObject])["time"]! as! String
+                let days = (serie["schedule"] as! [String: NSObject])["days"]! as! [String]
                 let summary = serie["summary"] as! String
                 var coverImgURL: String?
                 var posterImgURL: String?
-                if let imgURL = serie["image"] as? [String:String] {
+                if let imgURL = serie["image"] as? [String: String] {
                     coverImgURL = imgURL["medium"]!
                 }
-                if let imgURL = serie["image"] as? [String:String] {
+                if let imgURL = serie["image"] as? [String: String] {
                     posterImgURL = imgURL["original"]!
                 }
-                
                                 
                 series.append(Serie(id: id,
                                     name: name,

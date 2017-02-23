@@ -49,6 +49,8 @@ class SerieEpisodesTabViewController: UIViewController {
 
 }
 
+// MARK: SerieEpisodesTabViewController delegates
+
 extension SerieEpisodesTabViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -29,10 +29,10 @@ private struct PagingMenuOptions: PagingMenuControllerCustomizable {
             return [MenuItem1(), MenuItem2()]
         }
         var backgroundColor: UIColor {
-            return UIColor.clear
+            return .clear
         }
         var selectedBackgroundColor: UIColor {
-            return UIColor.clear
+            return .clear
         }
         var focusMode: MenuFocusMode {
             return .underline(height: 4.0, color:  UIColor(rgba: "#167ED6"), horizontalPadding: 0.0, verticalPadding: 0.0)
@@ -42,8 +42,8 @@ private struct PagingMenuOptions: PagingMenuControllerCustomizable {
     fileprivate struct MenuItem1: MenuItemViewCustomizable {
         var displayMode: MenuItemDisplayMode {
             let text = "Detail"
-            let color = UIColor.white
-            let selectedColor = UIColor.white
+			let color: UIColor = .white
+			let selectedColor: UIColor = .white
             let font = UIFont.systemFont(ofSize: 24)
             let selectedFont = UIFont.boldSystemFont(ofSize: 24)
             return .text(title: MenuItemText(text: text,
@@ -56,8 +56,8 @@ private struct PagingMenuOptions: PagingMenuControllerCustomizable {
     fileprivate struct MenuItem2: MenuItemViewCustomizable {
         var displayMode: MenuItemDisplayMode {
             let text = "Episodes"
-            let color = UIColor.white
-            let selectedColor = UIColor.white
+			let color: UIColor = .white
+			let selectedColor: UIColor = .white
             let font = UIFont.systemFont(ofSize: 24)
             let selectedFont = UIFont.boldSystemFont(ofSize: 24)
             return .text(title: MenuItemText(text: text,
@@ -74,16 +74,16 @@ class SerieDetailViewController: UIViewController {
     var serie: Serie?    
     @IBOutlet weak var seriePosterImageView: UIImageView!
     @IBOutlet weak var posterImageHeightConstraint: NSLayoutConstraint!
-    
+	
+	fileprivate let iPhone5Height: CGFloat = 568.0
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let screenHeight = UIScreen.main.bounds.height
-        print(screenHeight)
         
         var heightDifference: CGFloat = 0
-        if screenHeight <= 568.0 {
+        if screenHeight <= iPhone5Height {
             posterImageHeightConstraint.constant = 170
             heightDifference = 35
         }
@@ -96,26 +96,6 @@ class SerieDetailViewController: UIViewController {
         
         pagingMenuController.view.frame.origin.y += (220 - heightDifference)
         pagingMenuController.view.frame.size.height -= (220 - heightDifference)
-        /*pagingMenuController.onMove = { state in
-            switch state {
-            case let .willMoveController(menuController, previousMenuController):
-                print(previousMenuController)
-                print(menuController)
-            case let .didMoveController(menuController, previousMenuController):
-                print(previousMenuController)
-                print(menuController)
-            case let .willMoveItem(menuItemView, previousMenuItemView):
-                print(previousMenuItemView)
-                print(menuItemView)
-            case let .didMoveItem(menuItemView, previousMenuItemView):
-                print(previousMenuItemView)
-                print(menuItemView)
-            case .didScrollStart:
-                print("Scroll start")
-            case .didScrollEnd:
-                print("Scroll end")
-            }
-        }*/
         
         addChildViewController(pagingMenuController)
         view.addSubview(pagingMenuController.view)
@@ -152,16 +132,5 @@ class SerieDetailViewController: UIViewController {
         
         pagingMenuController.didMove(toParentViewController: self)
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

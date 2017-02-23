@@ -28,12 +28,12 @@ class PeopleConnection: Connection {
             return data as! Error
         }
         
-        if let peopleList = data as? [[String:NSObject]] {
+        if let peopleList = data as? [[String: NSObject]] {
             for person in peopleList {
-                let id = String(describing: (person["person"] as! [String:NSObject])["id"]!)
-                let name = (person["person"] as! [String:NSObject])["name"] as! String
+                let id = String(describing: (person["person"] as! [String: NSObject])["id"]!)
+                let name = (person["person"] as! [String: NSObject])["name"] as! String
                 var imageURL: String?
-                if let imgURL = (person["person"] as! [String:NSObject])["image"] as? [String:String] {
+                if let imgURL = (person["person"] as! [String: NSObject])["image"] as? [String: String] {
                     imageURL = imgURL["original"]!
                 }
                 

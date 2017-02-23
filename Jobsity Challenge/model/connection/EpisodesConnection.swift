@@ -18,7 +18,7 @@ class EpisodesConnection: Connection {
     
     fileprivate func bindData(_ data: Any?) -> Any? {
         
-        var episodesBySeason: [String:[Episode]] = [:]
+        var episodesBySeason: [String: [Episode]] = [:]
         var episodes: [Episode] = []
         
         guard let _ = data else {
@@ -29,7 +29,7 @@ class EpisodesConnection: Connection {
             return data as! Error
         }
         
-        if let episodesArray = data as? [[String:NSObject]] {
+        if let episodesArray = data as? [[String: NSObject]] {
             var index = 0
             var currentSeason = ""
             var isFirstEpisode = true
@@ -40,7 +40,7 @@ class EpisodesConnection: Connection {
                 let season = String(describing: episode["season"]!)
                 let summary = episode["summary"] as? String
                 var imageURL: String?
-                if let imgURL = episode["image"] as? [String:String] {
+                if let imgURL = episode["image"] as? [String: String] {
                     imageURL = imgURL["original"]!
                 }
                 

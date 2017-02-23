@@ -14,17 +14,17 @@ class AuthenticationModel {
         if UserDefaults.standard.bool(forKey: "passwordAlreadySet") {
             let passcode = UserDefaults.standard.string(forKey: "passcode")
             guard password == passcode else { return nil }
-            return AuthenticationModel()
         } else {
             UserDefaults.standard.set(password,forKey: "passcode")
             UserDefaults.standard.set(true,forKey: "passwordAlreadySet")
-            return AuthenticationModel()
         }
-        
+		
+		return AuthenticationModel()
     }
 }
 
 class AuthenticationUIValidation: PasswordUIValidation<AuthenticationModel> {
+	
     init(in stackView: UIStackView, passwordDigits digits: Int) {
         super.init(in: stackView, digit: digits)
         validation = { password in

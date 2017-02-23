@@ -97,10 +97,6 @@ class JCSerieMO: NSManagedObject {
 			return nil
 		}
 		
-		/*guard serieMO.count > 0 else {
-			return nil
-		}*/
-		
 		let id = serieMO.id!
 		let name = serieMO.name!
 		let language = serieMO.language!

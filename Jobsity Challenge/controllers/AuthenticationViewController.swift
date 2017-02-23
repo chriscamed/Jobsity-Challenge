@@ -32,7 +32,6 @@ class AuthenticationViewController: UIViewController {
         }
         
         passwordUIValidation.failure = { _ in
-            //do not forget add [weak self] if the view controller become nil at some point during its lifetime
             print("Failure!")
         }
         

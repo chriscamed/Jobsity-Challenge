@@ -12,7 +12,6 @@ class PersonDetailViewController: UIViewController {
 	
 	@IBOutlet weak var tableView: UITableView!
 	@IBOutlet weak var progress: UIActivityIndicatorView!
-	@IBOutlet weak var emptyListLabel: UILabel!
 	fileprivate var series: [Serie] = []
 	var person: Person!
 
@@ -43,15 +42,9 @@ class PersonDetailViewController: UIViewController {
 				self.showAlertView(withMessage: "Error: \n\(data as! Error)", andTitle: "Error")
 			} else if data is [Serie] {
 				self.series = data as! [Serie]
-				if self.series.count > 0 {
-					self.tableView.isHidden = false
-					self.tableView.reloadData()
-				} else {
-					self.emptyListLabel.isHidden = false
-				}
-				
-				self.progress.stopAnimating()
-				
+				if self.series.count > 0 { self.tableView.reloadData() }
+				self.tableView.isHidden = false
+				self.progress.stopAnimating()				
 			}
 		}
 	}
@@ -69,6 +62,8 @@ class PersonDetailViewController: UIViewController {
 	}
 
 }
+
+// MARK: PersonDetailViewController delegates
 
 extension PersonDetailViewController: UITableViewDelegate, UITableViewDataSource {
 	

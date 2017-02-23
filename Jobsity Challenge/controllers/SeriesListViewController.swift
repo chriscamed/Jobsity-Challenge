@@ -16,10 +16,9 @@ class SeriesListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     fileprivate lazy var serieList: [Serie] = []
     fileprivate let nextPageThresholdInRows: CGFloat = 50.0
-    fileprivate var currentPage = 1
-    fileprivate var isLoading = false
-    fileprivate var isEndOfPages = false
-    fileprivate var selectedRow = 0
+    fileprivate var currentPage = 1, selectedRow = 0
+    fileprivate var isLoading = false, isEndOfPages = false
+	
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
@@ -135,7 +134,6 @@ extension SeriesListViewController: UITableViewDelegate, UITableViewDataSource, 
                 loadSeries(atPage: currentPage)
             }
         }
-        
     }
     
     // MARK: - Favorite Series View Controller Delegate

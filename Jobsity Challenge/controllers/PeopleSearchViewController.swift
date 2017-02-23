@@ -19,6 +19,7 @@ class PeopleSearchViewController: UIViewController {
         super.viewDidLoad()
         progress.stopAnimating()
         createSearchBar()
+		searchBar.becomeFirstResponder()
         tableView.register(UINib.init(nibName: "PeopleSearchTableCell", bundle: Bundle.main), forCellReuseIdentifier: "peopleListTableViewCell")
         tableView.keyboardDismissMode = .onDrag
     }
@@ -43,6 +44,8 @@ class PeopleSearchViewController: UIViewController {
 	}
 
 }
+
+// MARK: PeopleSearchViewController delegates
 
 extension PeopleSearchViewController: UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
