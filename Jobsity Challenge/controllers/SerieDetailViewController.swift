@@ -96,7 +96,7 @@ class SerieDetailViewController: UIViewController {
         
         pagingMenuController.view.frame.origin.y += (220 - heightDifference)
         pagingMenuController.view.frame.size.height -= (220 - heightDifference)
-        pagingMenuController.onMove = { state in
+        /*pagingMenuController.onMove = { state in
             switch state {
             case let .willMoveController(menuController, previousMenuController):
                 print(previousMenuController)
@@ -115,7 +115,7 @@ class SerieDetailViewController: UIViewController {
             case .didScrollEnd:
                 print("Scroll end")
             }
-        }
+        }*/
         
         addChildViewController(pagingMenuController)
         view.addSubview(pagingMenuController.view)

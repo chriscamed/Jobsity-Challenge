@@ -13,5 +13,6 @@ struct Constants {
     static let SERVER_URL = "http://api.tvmaze.com/"
     static let LIST_SHOWS_BY_PAGE = SERVER_URL + "shows?page="
     static let LIST_EPISODES = SERVER_URL + "shows/"
+    static let SEARCH_PEOPLE = SERVER_URL + "search/people?q="
     
 }

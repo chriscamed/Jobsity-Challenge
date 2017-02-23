@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="peopleListTableViewCell" rowHeight="229" id="86G-T4-Vbb" customClass="PeopleListTableViewCell" customModule="Jobsity_Challenge" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="576" height="229"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="86G-T4-Vbb" id="R7o-AH-o1p">
+                <rect key="frame" x="0.0" y="0.0" width="576" height="229"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ol5-8U-Yn8">
+                        <rect key="frame" x="8" y="8" width="150" height="211"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="211" id="hcM-iu-Mgp"/>
+                            <constraint firstAttribute="width" constant="150" id="phz-ls-ux0"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Chl-o4-U7v">
+                        <rect key="frame" x="166" y="100" width="402" height="30"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="ol5-8U-Yn8" firstAttribute="centerY" secondItem="R7o-AH-o1p" secondAttribute="centerY" id="Ini-hk-59i"/>
+                    <constraint firstItem="Chl-o4-U7v" firstAttribute="leading" secondItem="ol5-8U-Yn8" secondAttribute="trailing" constant="8" id="Nx4-Q4-80g"/>
+                    <constraint firstItem="ol5-8U-Yn8" firstAttribute="top" secondItem="R7o-AH-o1p" secondAttribute="topMargin" id="WJC-BL-0oc"/>
+                    <constraint firstItem="Chl-o4-U7v" firstAttribute="centerY" secondItem="R7o-AH-o1p" secondAttribute="centerY" id="aOc-iy-wP4"/>
+                    <constraint firstItem="Chl-o4-U7v" firstAttribute="trailing" secondItem="R7o-AH-o1p" secondAttribute="trailingMargin" id="kHL-CT-HhP"/>
+                    <constraint firstItem="ol5-8U-Yn8" firstAttribute="leading" secondItem="R7o-AH-o1p" secondAttribute="leadingMargin" id="pvX-l1-bcP"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="peopleImageView" destination="ol5-8U-Yn8" id="Eko-uz-S13"/>
+                <outlet property="peopleNameLabel" destination="Chl-o4-U7v" id="Hzb-zO-ill"/>
+            </connections>
+            <point key="canvasLocation" x="41" y="78.5"/>
+        </tableViewCell>
+    </objects>
+</document>

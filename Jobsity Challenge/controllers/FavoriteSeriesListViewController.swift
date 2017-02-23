@@ -15,6 +15,7 @@ protocol FavoriteSeriesDelegate: class {
 class FavoriteSeriesListViewController: UIViewController {
 	
 	@IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var emptyListLabel: UILabel!
 	fileprivate var seriesList: [Serie] = []
 	fileprivate var selectedRow = 0
     weak var delegate: FavoriteSeriesDelegate?
@@ -30,7 +31,12 @@ class FavoriteSeriesListViewController: UIViewController {
 			return
 		}
 		
-		seriesList = series
+        if series.count > 0 {
+            seriesList = series
+            tableView.isHidden = false
+            emptyListLabel.isHidden = true
+        }
+		
 	}
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
