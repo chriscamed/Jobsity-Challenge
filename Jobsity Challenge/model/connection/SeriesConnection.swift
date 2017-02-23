@@ -10,13 +10,13 @@ import Foundation
 
 class SeriesConnection: Connection {
     
-    func listSeries(fromServiceURL url: String, completion: @escaping (Any?) -> ()) {
+	func listSeries(fromServiceURL url: String, isPersonSeries: Bool = false, completion: @escaping (Any?) -> ()) {
         super.fetchData(fromURL: url) { data in
-            completion(self.bindData(data))
+            completion(self.bindData(data, isPersonSeries: isPersonSeries))
         }
     }
-    
-    fileprivate func bindData(_ data: Any?) -> Any? {
+	
+	fileprivate func bindData(_ data: Any?, isPersonSeries: Bool) -> Any? {
         
         var series: [Serie] = []
         
@@ -29,7 +29,11 @@ class SeriesConnection: Connection {
         }
         
         if let seriesArray = data as? [[String:NSObject]] {
-            for serie in seriesArray {
+            for serieItem in seriesArray {
+				var serie = serieItem
+				if isPersonSeries {
+					serie = (serieItem["_embedded"] as! [String:NSObject])["show"] as! [String:NSObject]
+				}
                 let id = String(describing: serie["id"]!)
                 let name = serie["name"] as! String
                 let language = serie["language"] as! String

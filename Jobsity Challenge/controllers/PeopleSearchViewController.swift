@@ -35,6 +35,12 @@ class PeopleSearchViewController: UIViewController {
         alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alertController, animated: true, completion: nil)
     }
+	
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		if let vc = segue.destination as? PersonDetailViewController {
+			vc.person = people[sender as! Int]
+		}
+	}
 
 }
 
@@ -47,6 +53,7 @@ extension PeopleSearchViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+		searchBar.endEditing(true)
         progress.startAnimating()
         progress.isHidden = false
         tableView.isHidden = true
@@ -75,7 +82,6 @@ extension PeopleSearchViewController: UITableViewDelegate, UITableViewDataSource
         return people.count
     }
     
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let placeholderImg = UIImage(named: "placeholder_img.jpg")
         let cell = tableView.dequeueReusableCell(withIdentifier: "peopleListTableViewCell", for: indexPath) as! PeopleListTableViewCell
@@ -87,6 +93,10 @@ extension PeopleSearchViewController: UITableViewDelegate, UITableViewDataSource
         
         return cell
     }
+	
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		performSegue(withIdentifier: "personDetail", sender: indexPath.row)
+	}
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 229

@@ -14,5 +14,7 @@ struct Constants {
     static let LIST_SHOWS_BY_PAGE = SERVER_URL + "shows?page="
     static let LIST_EPISODES = SERVER_URL + "shows/"
     static let SEARCH_PEOPLE = SERVER_URL + "search/people?q="
+	static let FETCH_PERSON_SERIES = SERVER_URL + "people/"
+	static let CAST_CREDITS = "/castcredits?embed=show"
     
 }

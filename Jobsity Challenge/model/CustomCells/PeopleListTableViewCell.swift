@@ -12,7 +12,11 @@ class PeopleListTableViewCell: UITableViewCell {
     
     @IBOutlet weak var peopleImageView: UIImageView!
     @IBOutlet weak var peopleNameLabel: UILabel!
-    
+	
+	class func instanceFromNib() -> UIView {
+		return UINib(nibName: "PeopleSearchTableCell", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! UIView
+	}
+	
 
     override func awakeFromNib() {
         super.awakeFromNib()

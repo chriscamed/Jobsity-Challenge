@@ -15,6 +15,9 @@
 		9A4A67D01E5E142600FFF4ED /* FavoriteSeriesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4A67CF1E5E142600FFF4ED /* FavoriteSeriesListViewController.swift */; };
 		9A4A67D51E5E21BC00FFF4ED /* empty_star.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A4A67D31E5E21BC00FFF4ED /* empty_star.png */; };
 		9A4A67D61E5E21BC00FFF4ED /* full_star.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A4A67D41E5E21BC00FFF4ED /* full_star.png */; };
+		9A4A67DB1E5F328E00FFF4ED /* PersonDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4A67DA1E5F328E00FFF4ED /* PersonDetailViewController.swift */; };
+		9A4A67E01E5F636F00FFF4ED /* PeopleTableListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4A67DF1E5F636F00FFF4ED /* PeopleTableListHeaderView.swift */; };
+		9A4A67E31E5F63CC00FFF4ED /* PeopleTableListHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A4A67E21E5F63CC00FFF4ED /* PeopleTableListHeaderView.xib */; };
 		9A8FFA501E58E89D007008DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8FFA4F1E58E89D007008DB /* AppDelegate.swift */; };
 		9A8FFA551E58E89D007008DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A8FFA531E58E89D007008DB /* Main.storyboard */; };
 		9A8FFA581E58E89D007008DB /* Jobsity_Challenge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9A8FFA561E58E89D007008DB /* Jobsity_Challenge.xcdatamodeld */; };
@@ -73,6 +76,9 @@
 		9A4A67CF1E5E142600FFF4ED /* FavoriteSeriesListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteSeriesListViewController.swift; sourceTree = "<group>"; };
 		9A4A67D31E5E21BC00FFF4ED /* empty_star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = empty_star.png; sourceTree = "<group>"; };
 		9A4A67D41E5E21BC00FFF4ED /* full_star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = full_star.png; sourceTree = "<group>"; };
+		9A4A67DA1E5F328E00FFF4ED /* PersonDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonDetailViewController.swift; sourceTree = "<group>"; };
+		9A4A67DF1E5F636F00FFF4ED /* PeopleTableListHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleTableListHeaderView.swift; sourceTree = "<group>"; };
+		9A4A67E21E5F63CC00FFF4ED /* PeopleTableListHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PeopleTableListHeaderView.xib; sourceTree = "<group>"; };
 		9A8FFA4C1E58E89D007008DB /* Jobsity Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Jobsity Challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A8FFA4F1E58E89D007008DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A8FFA541E58E89D007008DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -162,6 +168,7 @@
 		9A4A67CA1E5E0F1300FFF4ED /* view */ = {
 			isa = PBXGroup;
 			children = (
+				9A4A67E11E5F63B700FFF4ED /* TableHeaders */,
 				9A4A67CB1E5E0F2100FFF4ED /* TableCells */,
 			);
 			path = view;
@@ -174,6 +181,22 @@
 				9A9000911E5E97B7009CD795 /* PeopleSearchTableCell.xib */,
 			);
 			path = TableCells;
+			sourceTree = "<group>";
+		};
+		9A4A67DE1E5F634900FFF4ED /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				9A4A67DF1E5F636F00FFF4ED /* PeopleTableListHeaderView.swift */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		9A4A67E11E5F63B700FFF4ED /* TableHeaders */ = {
+			isa = PBXGroup;
+			children = (
+				9A4A67E21E5F63CC00FFF4ED /* PeopleTableListHeaderView.xib */,
+			);
+			path = TableHeaders;
 			sourceTree = "<group>";
 		};
 		9A8FFA431E58E89D007008DB = {
@@ -251,6 +274,7 @@
 			children = (
 				9ACD32511E5D489C001E552F /* Authentication */,
 				9A4A67C51E5DF27300FFF4ED /* CoreDataModel */,
+				9A4A67DE1E5F634900FFF4ED /* Headers */,
 				9AE4D0451E58FF800048C079 /* CustomCells */,
 				9AE4D0441E58FADD0048C079 /* DataBindObjects */,
 				9AE4D0411E58F8760048C079 /* Connection */,
@@ -270,6 +294,7 @@
 				9ABC071D1E5CAF06000CE3C1 /* EpisodeDetailViewController.swift */,
 				9A4A67CF1E5E142600FFF4ED /* FavoriteSeriesListViewController.swift */,
 				9A90008F1E5E93D6009CD795 /* PeopleSearchViewController.swift */,
+				9A4A67DA1E5F328E00FFF4ED /* PersonDetailViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -435,6 +460,7 @@
 				9A9000921E5E97B7009CD795 /* PeopleSearchTableCell.xib in Resources */,
 				9ABC07221E5CB008000CE3C1 /* cover_reference.jpg in Resources */,
 				9A8FFA551E58E89D007008DB /* Main.storyboard in Resources */,
+				9A4A67E31E5F63CC00FFF4ED /* PeopleTableListHeaderView.xib in Resources */,
 				9A34712C1E5A405C00D3BE1D /* placeholder_img.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -548,6 +574,7 @@
 			files = (
 				9AB370991E5B4C32009B9E84 /* SerieDetailTabViewController.swift in Sources */,
 				9A4A67C41E5DEFE200FFF4ED /* Constants.swift in Sources */,
+				9A4A67E01E5F636F00FFF4ED /* PeopleTableListHeaderView.swift in Sources */,
 				9A9000981E5E99FE009CD795 /* PeopleConnection.swift in Sources */,
 				9AE4D0431E58F8760048C079 /* Connection.swift in Sources */,
 				9AB370A41E5B8738009B9E84 /* EpisodesConnection.swift in Sources */,
@@ -556,6 +583,7 @@
 				9A8FFA581E58E89D007008DB /* Jobsity_Challenge.xcdatamodeld in Sources */,
 				9AB370951E5B35C6009B9E84 /* SerieDetailViewController.swift in Sources */,
 				9AE4D04B1E59059A0048C079 /* SeriesConnection.swift in Sources */,
+				9A4A67DB1E5F328E00FFF4ED /* PersonDetailViewController.swift in Sources */,
 				9A9000941E5E9803009CD795 /* Person.swift in Sources */,
 				9ACD32531E5D48AB001E552F /* AuthenticationUIValidation.swift in Sources */,
 				9AB370A21E5B855C009B9E84 /* Episode.swift in Sources */,
