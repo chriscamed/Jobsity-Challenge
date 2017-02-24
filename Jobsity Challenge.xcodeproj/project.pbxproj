@@ -23,7 +23,7 @@
 		9A8FFA581E58E89D007008DB /* Jobsity_Challenge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9A8FFA561E58E89D007008DB /* Jobsity_Challenge.xcdatamodeld */; };
 		9A8FFA5A1E58E89D007008DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A8FFA591E58E89D007008DB /* Assets.xcassets */; };
 		9A8FFA5D1E58E89D007008DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A8FFA5B1E58E89D007008DB /* LaunchScreen.storyboard */; };
-		9A8FFA681E58E89D007008DB /* Jobsity_ChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8FFA671E58E89D007008DB /* Jobsity_ChallengeTests.swift */; };
+		9A8FFA681E58E89D007008DB /* SeriesConnectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8FFA671E58E89D007008DB /* SeriesConnectionTests.swift */; };
 		9A9000901E5E93D6009CD795 /* PeopleSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A90008F1E5E93D6009CD795 /* PeopleSearchViewController.swift */; };
 		9A9000921E5E97B7009CD795 /* PeopleSearchTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A9000911E5E97B7009CD795 /* PeopleSearchTableCell.xib */; };
 		9A9000941E5E9803009CD795 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9000931E5E9803009CD795 /* Person.swift */; };
@@ -87,7 +87,7 @@
 		9A8FFA5C1E58E89D007008DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9A8FFA5E1E58E89D007008DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A8FFA631E58E89D007008DB /* Jobsity ChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Jobsity ChallengeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9A8FFA671E58E89D007008DB /* Jobsity_ChallengeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jobsity_ChallengeTests.swift; sourceTree = "<group>"; };
+		9A8FFA671E58E89D007008DB /* SeriesConnectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesConnectionTests.swift; sourceTree = "<group>"; };
 		9A8FFA691E58E89D007008DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A90008F1E5E93D6009CD795 /* PeopleSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleSearchViewController.swift; sourceTree = "<group>"; };
 		9A9000911E5E97B7009CD795 /* PeopleSearchTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PeopleSearchTableCell.xib; sourceTree = "<group>"; };
@@ -233,7 +233,7 @@
 		9A8FFA661E58E89D007008DB /* Jobsity ChallengeTests */ = {
 			isa = PBXGroup;
 			children = (
-				9A8FFA671E58E89D007008DB /* Jobsity_ChallengeTests.swift */,
+				9A8FFA671E58E89D007008DB /* SeriesConnectionTests.swift */,
 				9A8FFA691E58E89D007008DB /* Info.plist */,
 			);
 			path = "Jobsity ChallengeTests";
@@ -606,7 +606,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A8FFA681E58E89D007008DB /* Jobsity_ChallengeTests.swift in Sources */,
+				9A8FFA681E58E89D007008DB /* SeriesConnectionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

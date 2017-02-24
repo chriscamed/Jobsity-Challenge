@@ -20,6 +20,20 @@
                ReferencedContainer = "container:Jobsity Challenge.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "9A8FFA621E58E89D007008DB"
+               BuildableName = "Jobsity ChallengeTests.xctest"
+               BlueprintName = "Jobsity ChallengeTests"
+               ReferencedContainer = "container:Jobsity Challenge.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction

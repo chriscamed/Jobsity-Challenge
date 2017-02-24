@@ -9,7 +9,7 @@
 import XCTest
 @testable import Jobsity_Challenge
 
-class Jobsity_ChallengeTests: XCTestCase {
+class SeriesConnectionTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
@@ -21,11 +21,23 @@ class Jobsity_ChallengeTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testSeriesConnection() {
+		let asyncExpectation = expectation(description: "longRunningFunction")
+		SeriesConnection().listSeries(fromServiceURL: Constants.LIST_SHOWS_BY_PAGE + "\(1)") { data in
+			XCTAssert(data is [Serie], "It's not a serie")
+			XCTAssertFalse(data is Error, "It's an error")
+			XCTAssert(data != nil, "It's nil")
+			asyncExpectation.fulfill()
+		}
+		
+		self.waitForExpectations(timeout: 10) { error in
+			
+			XCTAssertNil(error, "Something went horribly wrong")
+			//XCAssertEqual(testUser.orders.count, 10)
+			
+		}
     }
-    
+	
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {
