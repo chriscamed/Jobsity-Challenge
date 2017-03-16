@@ -26,7 +26,7 @@ class SerieEpisodesTabViewController: UIViewController {
     }
     
     func loadData() {
-        EpisodesConnection().listEpisodes(fromServiceURL: Constants.LIST_EPISODES + serie!.id + "/episodes") { [unowned self] data in
+        EpisodesConnection().listEpisodes(withSerieId: serie!.id) { [unowned self] data in
             self.progress.stopAnimating()
             self.tableView.isHidden = false
             

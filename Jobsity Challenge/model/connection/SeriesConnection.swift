@@ -10,9 +10,17 @@ import Foundation
 
 class SeriesConnection: Connection {
     
-	func listSeries(fromServiceURL url: String, isPersonSeries: Bool = false, completion: @escaping (Any?) -> ()) {
+	func listSeries(atPage page: String, completion: @escaping (Any?) -> ()) {
+        let url = Constants.LIST_SHOWS_BY_PAGE + "\(page)"
         super.fetchData(fromURL: url) { data in
-            completion(self.bindData(data, isPersonSeries: isPersonSeries))
+            completion(self.bindData(data, isPersonSeries: false))
+        }
+    }
+    
+    func listSeries(byPersonId id: String, completion: @escaping (Any?) -> ()) {
+        let url = Constants.FETCH_PERSON_SERIES + id + Constants.CAST_CREDITS
+        super.fetchData(fromURL: url) { data in
+            completion(self.bindData(data, isPersonSeries: true))
         }
     }
 	

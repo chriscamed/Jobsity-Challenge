@@ -10,7 +10,8 @@ import Foundation
 
 class PeopleConnection: Connection {
     
-    func listPeople(fromServiceURL url: String, completion: @escaping (Any?) -> ()) {
+    func listPeople(withName name: String, completion: @escaping (Any?) -> ()) {
+        let url = Constants.SEARCH_PEOPLE + name
         super.fetchData(fromURL: url) { data in
             completion(self.bindData(data))
         }

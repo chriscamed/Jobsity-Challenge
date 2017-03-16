@@ -35,7 +35,7 @@ class PersonDetailViewController: UIViewController {
     }
 	
 	private func loadSeries() {
-		SeriesConnection().listSeries(fromServiceURL: Constants.FETCH_PERSON_SERIES + person.id + Constants.CAST_CREDITS, isPersonSeries: true) { [unowned self] data in
+        SeriesConnection().listSeries(byPersonId: person.id) { [unowned self] data in
 			if data == nil {
 				self.showAlertView(withMessage: "Data is nil", andTitle: "Error")
 			} else if (data is Error) {

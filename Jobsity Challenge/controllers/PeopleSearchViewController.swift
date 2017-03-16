@@ -60,7 +60,7 @@ extension PeopleSearchViewController: UITableViewDelegate, UITableViewDataSource
         progress.startAnimating()
         progress.isHidden = false
         tableView.isHidden = true
-        PeopleConnection().listPeople(fromServiceURL: Constants.SEARCH_PEOPLE + searchBar.text!) { [unowned self] data in
+        PeopleConnection().listPeople(withName: searchBar.text!) { [unowned self] data in
             if data == nil {
                 self.showAlertView(withMessage: "Data is nil", andTitle: "Error")
             } else if (data is Error) {

@@ -10,7 +10,8 @@ import Foundation
 
 class EpisodesConnection: Connection {
     
-    func listEpisodes(fromServiceURL url: String, completion: @escaping (Any?) -> ()) {
+    func listEpisodes(withSerieId id: String, completion: @escaping (Any?) -> ()) {
+        let url = Constants.LIST_EPISODES + id + "/episodes"
         super.fetchData(fromURL: url) { data in
             completion(self.bindData(data))
         }

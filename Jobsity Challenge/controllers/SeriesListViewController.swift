@@ -36,7 +36,7 @@ class SeriesListViewController: UIViewController {
     
     func loadSeries(atPage page: Int) {
         isLoading = true
-        SeriesConnection().listSeries(fromServiceURL: Constants.LIST_SHOWS_BY_PAGE + "\(page)") { [unowned self] data in
+        SeriesConnection().listSeries(atPage: "\(page)") { [unowned self] data in
             self.progress.stopAnimating()
             self.tableView.isHidden = false
             
